@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&display=swap');
+
+body {
+  background-color: #333;
+  margin: 0 0 1em 0;
+  font-family: Roboto;
+}
+
+button {
+  background-color: none;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+h1 {
+  text-align: center;
+  color: #fafafa;
+  text-shadow: 1px 1px 5px rgb(0 0 0 / 0.5);
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+  text-shadow: 1px 1px 2px rgb(0 0 0 / 0.1);
+}
+
+
+ul { padding: 0 }
+li { list-style: none }
+li:has(input:checked) {
+  text-decoration: line-through;
+}
+
+form:invalid button {
+  cursor: not-allowed;
+  opacity: 0.5;
+  background-color: #222;
+}
+
+input:is([type=text], [type=date]) {
+  width: 100%;
+  height: 1.5em;
+}
+
+.todo-list {
+  background-color: #fafafa;
+  margin: 1em;
+  padding: 1em;
+  border-radius: 3px;
+  box-shadow: 2px 2px 10px rgb( 0 0 0 / 0.5 )
+}
+
+.todo-list-item {
+  display: grid;
+  grid-template-areas: 
+    "checkbox text"
+    ". date";
+  place-content: start;
+  text-align: left;
+}
+
+.todo-item-due-date {
+/* .todo-list-item span:not(.todo-list-item-text) { */
+  grid-area: date;
+  font-size: 0.75rem;
+  color: #A22;
+  font-weight: bold;
+}
+
+.add-button {
+  color: #fafafa;
+  display: grid;
+  place-items: center;
+  margin: auto;
+  cursor: pointer;
+
+  transition-duration: 0.3s;
+}
+
+.add-item {
+  background-color: #5E5;
+  border-radius: 0.2em;
+  width: 1.5em;
+  height: 1.5em;
+  padding: 0;
+}
+
+.add-list {
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  background-color: #fafafa;
+  color: #222;
+  text-shadow: 1px 1px 5px rgb( 0 0 0 / 0.2 );
+}
+
+.todo-list-add-item {
+  display: grid;
+  grid-template-columns: 1fr 0.5fr 2em;
+  gap: 1em;
+  place-items: center;
+}

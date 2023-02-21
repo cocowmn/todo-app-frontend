@@ -4,12 +4,41 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./styles.css">
-  <script defer src="./app.js"></script>
 
-  <title>Document</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script defer type="module" src="./app.js"></script>
+
+  <title>To-Do Lists</title>
 </head>
+
 <body>
+  <template id="todo-list-template">
+    <article class="todo-list">
+      <h2 class="todo-list-header">To-Do List #1</h2>
   
+      <ul class="todo-list-items">
+      </ul>
+
+      <form class="todo-list-add-item">
+        <input class="todo-list-add-text" type="text" required placeholder="Add New To-Do Item">
+        <input class="todo-list-add-date" type="date">
+        <button type="submit" class="add-button add-item">+</button>
+      </form>
+
+    </article>
+  </template>
+
+  <template id="todo-list-item-template">
+    <li class="todo-list-item">
+      <input type="checkbox"/>
+      <span class="todo-list-item-text"></span>
+    </li>
+  </template>
+
+  <h1>To-Do Lists</h1>
+
+  <section id="todo-lists"></section>
+
+  <button class="add-button add-list">+</button>
 </body>
 </html>
