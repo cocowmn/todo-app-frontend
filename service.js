@@ -6,11 +6,12 @@
  *    x: add error handling and logging for failure states
  */
 
-export const BASE_URL = 'http://localhost:8080'
+export const BASE_URL = 'https://1604-71-105-165-232.ngrok.io'
 
 export async function getAllLists() {
     const getListsResponse = await fetch(`${ BASE_URL }/lists/all`, {
-      method: 'GET'
+      method: 'GET',
+      headers: { 'ngrok-skip-browser-warning': 'true' }
     })
     return getListsResponse.json()
 }
