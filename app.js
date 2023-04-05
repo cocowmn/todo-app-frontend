@@ -1,19 +1,49 @@
-/** UI OBJECTIVES:
- *    1: Create a list, Display it on screen
- *      1a: Display List Title
- *      1b: Create a To-Do Item inside of a List
- *      1c: Display Due Date when Available
- *    2: Update a list when a new item is added
- *      2a: Handle Form Input
- */
+const BASE_URL = 'https://d9dd-71-105-165-232.ngrok.io'
 
-/** API OBJECTIVES:
- *    1: Get All Lists
- *    2: Create A New List
- *    3: Create A To-Do Item
- * 
- *    x: add error handling and logging for failure states
- */
+async function getAllLists() {
+  const response = await fetch(
+    BASE_URL + '/lists/all',
+    {
+      method: 'get',
+      headers: {
+        'ngrok-skip-browser-warning': 'true'
+      }
+    }
+  )
+
+  return response.json()
+}
 
 
-console.log('Hello!')
+// display a list on the screen
+
+function displayList(list) {
+  /*
+  var temp = document.getElementsByTagName("template")[0];
+  var clon = temp.content.cloneNode(true);
+  document.body.appendChild(clon);
+  */
+
+  const listTemplate = document.querySelector('template#todo-list-template')
+  const newListElement = listTemplate.content.cloneNode(true)
+  const listItems = newListElement.querySelector('.list-items')
+
+  for(let item of list.toDoItems) {
+    const listItem = document.createElement('li')
+    listItem.innerText = item.content
+    listItems.appendChild(listItem)
+  }
+
+  document.body.appendChild(newListElement)
+}
+
+// create a new list
+
+// create a new item
+
+
+const allLists = await getAllLists()
+for(let list of allLists) {
+  displayList(list)
+}
+console.log( await getAllLists() )
